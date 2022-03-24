@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: build 18.04
+        name: build ${{ matrix.dockerfile }}
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -48,10 +48,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: build libchewing
+        name: build ${{ matrix.dockerfile }}
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: libchewing.dockerfile
+          file: ${{ matrix.dockerfile }}.dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:libchewing
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:${{ matrix.dockerfile }}
