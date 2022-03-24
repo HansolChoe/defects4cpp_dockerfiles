@@ -22,28 +22,20 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - if: matrix.dockerfile == '18.04'
+      -
         name: build 18.04
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: 18.04.dockerfile
+          file: ${{ matrix.dockerfile }}.dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:18.04
-      - if: matrix.dockerfile == '20.04'
-        name: build 20.04
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: 20.04.dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:20.04
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:${{ matrix.dockerfile}}
   images:
     needs: base-images
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfile: ["libchewing", "proj", "wireshark-ubuntu-dev"]
+        dockerfile: ["libchewing", "proj", "wireshark", "zsh"]
     steps:
       - uses: "actions/checkout@v2"
       -
@@ -55,7 +47,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - if: matrix.dockerfile == 'libchewing'
+      -
         name: build libchewing
         uses: docker/build-push-action@v2
         with:
@@ -63,19 +55,3 @@ jobs:
           file: libchewing.dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:libchewing
-      - if: matrix.dockerfile == 'proj'
-        name: build proj
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: proj.dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:proj
-      - if: matrix.dockerfile == 'wireshark-ubuntu-dev'
-        name: build wireshark
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: wireshark-ubuntu-dev.dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/defects4cpp-ubuntu:wireshark
