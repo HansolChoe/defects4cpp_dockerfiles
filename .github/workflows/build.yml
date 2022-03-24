@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfile: ["libchewing", "libsndfile", "proj", "wget2", "wireshark", "xbps", "yara", "zsh"]
+        dockerfile: ["libchewing", "libsndfile", "libssh", "libtiff", "proj", "wget2", "wireshark", "xbps", "yara", "zsh"]
     steps:
       - uses: "actions/checkout@v2"
       -
