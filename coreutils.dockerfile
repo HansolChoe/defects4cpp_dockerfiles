@@ -3,5 +3,6 @@
 FROM hschoe/defects4cpp-ubuntu:18.04
 
 RUN apt-smart -aq &&\
- apt-get install -y openssh-server libssl-dev libgcrypt-dev zlib1g zlib1g-dev libcmocka-dev &&\
+ apt-get install -y autopoint bison gettext gperf gzip help2man m4 perl rsync tar texinfo xz-utils &&\
  rm -rf /var/lib/apt/lists/*
+ 
