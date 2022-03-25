@@ -2,6 +2,6 @@
 # Licensed under the MIT
 FROM hschoe/defects4cpp-ubuntu:20.04
 
-RUN apt-smart -aq &&\
+RUN apt-get update &&\
  apt-get install -y sqlite3 libsqlite3-dev libtiff5-dev libcurl4-gnutls-dev librtmp-dev ninja-build &&\
  rm -rf /var/lib/apt/lists/*

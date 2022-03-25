@@ -2,6 +2,6 @@
 # Licensed under the MIT
 FROM hschoe/defects4cpp-ubuntu:18.04
 
-RUN apt-smart -aq &&\
+RUN apt-get update &&\
  apt-get install -y --no-install-recommends autogen &&\
  rm -rf /var/lib/apt/lists/*

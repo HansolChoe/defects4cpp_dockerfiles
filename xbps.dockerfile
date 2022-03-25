@@ -2,7 +2,7 @@
 # Licensed under the MIT
 FROM hschoe/defects4cpp-ubuntu:20.04
 
-RUN apt-smart -aq &&\
+RUN apt-get update &&\
  apt-get install -y libssl-dev libarchive-dev liblutok-dev libsqlite3-dev zlib1g-dev &&\
  rm -rf /var/lib/apt/lists/*
 
