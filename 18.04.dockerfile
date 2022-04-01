@@ -18,7 +18,7 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
  apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main" &&\
  apt-get install -y cmake
 
-RUN useradd --uid 1001 --home-dir /home/workspace --shell /bin/bash defects4cpp &&\
+RUN useradd --home-dir /home/workspace --shell /bin/bash defects4cpp &&\
  git config --global user.email "hschoe@suresofttech.com" &&\
  git config --global user.name "Hansol Choe"
 
