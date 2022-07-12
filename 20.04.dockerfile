@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
     
 RUN apt-get update &&\
  apt-get install --no-install-recommends -y automake bear build-essential git lcov libtool\
- liblua5.3-dev lsb-release pkg-config perl python3-pip rename software-properties-common wget &&\
+ liblua5.3-dev lsb-release pkg-config perl python3-pip rename software-properties-common vim wget &&\
  rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.8 100

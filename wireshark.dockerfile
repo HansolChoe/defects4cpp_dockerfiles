@@ -5,7 +5,7 @@ FROM wireshark/wireshark-ubuntu-dev
 ENV DEBIAN_FRONTEND=noninteractive
     
 RUN apt-get update &&\
- apt-get install --no-install-recommends -y python3-pip wget bear lsb-release software-properties-common &&\
+ apt-get install --no-install-recommends -y python3-pip wget bear lsb-release software-properties-common vim &&\
  rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 100
