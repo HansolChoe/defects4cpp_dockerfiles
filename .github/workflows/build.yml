@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfile: ["coreutils", "cppcheck", "dlt_daemon", "example", "freerdp", "libchewing", "libsndfile", "libssh", "libtiff", "libtiff_sanitizer", "libucl", "libxml2", "openssl", "proj", "wget2", "wireshark", "xbps", "yara", "zsh"]
+        dockerfile: ["coreutils", "cppcheck", "dlt_daemon", "example", "freerdp", "jerryscript", "libchewing", "libsndfile", "libssh", "libtiff", "libtiff_sanitizer", "libucl", "libxml2", "openssl", "proj", "wget2", "wireshark", "xbps", "yara", "zsh"]
     steps:
       - uses: "actions/checkout@v2"
       -
