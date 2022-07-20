@@ -2,11 +2,11 @@
 # Licensed under the MIT
 FROM hschoe/defects4cpp-ubuntu:18.04
 
-RUN pushd /tmp &&\
+RUN cd /tmp &&\
   curl -LO https://github.com/google/googletest/archive/release-1.8.0.tar.gz &&\
   tar xzf   release-1.8.0.tar.gz &&\
   mkdir -p  googletest-release-1.8.0/build &&\
-  pushd     googletest-release-1.8.0/build &&\
+  cd     googletest-release-1.8.0/build &&\
   cmake .. ; make ; make install
 
 RUN apt-get update &&\
